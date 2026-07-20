@@ -16,7 +16,7 @@ module OpenTelemetry
           @trace_flags = TraceFlags.new(0x00)
         end
 
-        def initialize(inherited_context : SpanContext)
+        def initialize(inherited_context : AbstractSpanContext)
           @trace_id = inherited_context.trace_id
           @trace_state = inherited_context.trace_state
           @trace_flags = inherited_context.trace_flags

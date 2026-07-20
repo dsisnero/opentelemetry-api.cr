@@ -7,9 +7,9 @@ module OpenTelemetry
 
       abstract def generator : AbstractIdGenerator::AbstractBase
 
-      abstract def trace_id
+      abstract def trace_id : Slice(UInt8)
 
-      abstract def span_id
+      abstract def span_id : Slice(UInt8)
 
       def self.trace_id
         generator.trace_id

@@ -48,32 +48,32 @@ module OpenTelemetry
       abstract def wall_finish=(wall_finish : Time?) # Time = nil
 
       # This is probably a property
-      abstract def events : Array(Event)
-      abstract def events=(events : Array(Event))
+      abstract def events : Array(AbstractEvent)
+      abstract def events=(events : Array(AbstractEvent))
 
       # This is probably a property
       abstract def attributes : Hash(String, AnyAttribute)
       abstract def attributes=(attributes : Hash(String, AnyAttribute))
 
       # This is probably a property
-      abstract def parent : Span?
-      abstract def parent=(parent : Span?) # Span = nil
+      abstract def parent : AbstractSpan?
+      abstract def parent=(parent : AbstractSpan?) # Span = nil
 
       # This is probably a property
-      abstract def children : Array(Span)
-      abstract def children=(children : Array(Span))
+      abstract def children : Array(AbstractSpan)
+      abstract def children=(children : Array(AbstractSpan))
 
       # This is probably a property
-      abstract def context : SpanContext
-      abstract def context=(context : SpanContext) # SpanContext = SpanContext.new
+      abstract def context : AbstractSpanContext
+      abstract def context=(context : AbstractSpanContext) # SpanContext = SpanContext.new
 
       # This is probably a property
       abstract def kind : Kind
       abstract def kind=(kind : Kind) # Kind = Kind::Internal
 
       # This is probably a property
-      abstract def status : Status
-      abstract def status=(status : Status) # Status = Status.new
+      abstract def status : AbstractStatus
+      abstract def status=(status : AbstractStatus) # Status = Status.new
 
       # This is probably a property
       abstract def is_recording : Bool

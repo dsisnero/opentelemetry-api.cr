@@ -6,7 +6,7 @@ module OpenTelemetry
       abstract class AbstractConfig
         abstract def initialize(@trace_id, @span_id, @parent_id = nil)
 
-        abstract def initialize(inherited_context : SpanContext)
+        abstract def initialize(inherited_context : AbstractSpanContext)
 
         # Likely defined as a property
         abstract def trace_id : Slice(UInt8)

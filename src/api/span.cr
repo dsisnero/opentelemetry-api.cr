@@ -18,19 +18,35 @@ module OpenTelemetry
       property wall_start : Time = Time.utc
       property finish : Time::Span? = nil
       property wall_finish : Time? = nil
-      property events : Array(Event) = [] of Event
+      getter events : Array(AbstractEvent) = [] of AbstractEvent
       property attributes : Hash(String, AnyAttribute) = {} of String => AnyAttribute
-      property parent : Span? = nil
-      property children : Array(Span) = [] of Span
-      property context : SpanContext = SpanContext.new
+      property parent : AbstractSpan? = nil
+      getter children : Array(AbstractSpan) = [] of AbstractSpan
+      property context : AbstractSpanContext = SpanContext.new
       property kind : Kind = Kind::Internal
-      property status : Status = Status.new
+      property status : AbstractStatus = Status.new
       # ameba:disable Style/QueryBoolMethods
       property is_recording : Bool = true
 
       MATCH = /(?<span_id>[A-Fa-f0-9]{16})/
 
       def initialize(@name = "")
+      end
+
+      def events=(events : Array(AbstractEvent))
+        @events = events
+      end
+
+      def events=(events : Array(Event))
+        @events = events.map(&.as(AbstractEvent))
+      end
+
+      def children=(children : Array(AbstractSpan))
+        @children = children
+      end
+
+      def children=(children : Array(Span))
+        @children = children.map(&.as(AbstractSpan))
       end
 
       def recording?

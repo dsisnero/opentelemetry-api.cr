@@ -12,8 +12,8 @@ module OpenTelemetry
 
       abstract def attributes : Hash(String, AnyAttribute) # default to empty hash
 
-      abstract def parent_span : Span?
-      abstract def parent_span=(parent_span : Span?)
+      abstract def parent_span : AbstractSpan?
+      abstract def parent_span=(parent_span : AbstractSpan?)
 
       abstract def initialize(@name)
 

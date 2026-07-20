@@ -10,19 +10,19 @@ module OpenTelemetry
         @generator = OpenTelemetry::API::IdGenerator::Base.new
       end
 
-      def trace_id
+      def trace_id : Slice(UInt8)
         @generator.trace_id
       end
 
-      def span_id
+      def span_id : Slice(UInt8)
         @generator.span_id
       end
 
-      def self.trace_id
+      def self.trace_id : Slice(UInt8)
         generator.trace_id
       end
 
-      def self.span_id
+      def self.span_id : Slice(UInt8)
         generator.span_id
       end
     end

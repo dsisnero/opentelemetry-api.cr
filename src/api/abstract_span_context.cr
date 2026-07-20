@@ -7,7 +7,7 @@ module OpenTelemetry
 
       abstract def initialize(@trace_id, @span_id, @parent_id, @trace_flags, @trace_state, @remote = false)
 
-      abstract def initialize(inherited_context : SpanContext)
+      abstract def initialize(inherited_context : AbstractSpanContext)
 
       abstract def initialize(configuration : Config)
 
@@ -54,7 +54,7 @@ module OpenTelemetry
 
       abstract def []=(val, val2)
 
-      def self.build(inherited_context : SpanContext? = nil)
+      def self.build(inherited_context : AbstractSpanContext? = nil)
       end
     end
   end
