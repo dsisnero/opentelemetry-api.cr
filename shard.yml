@@ -12,7 +12,8 @@ dependencies:
   splay_tree_map:
     github: wyhaines/splay_tree_map.cr
   nbchannel:
-    github: wyhaines/nbchannel.cr
+    github: dsisnero/nbchannel.cr
+    branch: codex/crystal-1.21-compat
   csuuid:
     github: wyhaines/csuuid.cr
   time-ext:
